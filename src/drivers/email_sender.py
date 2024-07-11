@@ -9,7 +9,7 @@ def send_email(to_addrs, body):
     password = "sjammEAvJDyMWsvMU5"
 
     msg = MIMEMultipart()
-    msg["From"] = "thiagocosta@ucl.br"
+    msg["From"] = "thiagocosta@email.com"
     msg["To"] = ", ".join(to_addrs)
 
     msg["Subject"] = "Trip confirmation"
