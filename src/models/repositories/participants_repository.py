@@ -12,7 +12,7 @@ class ParticipantsRepository:
         cursor.execute(
             """
             INSERT INTO participants (id, trip_id, emails_to_invite_id, name)
-            VALUES (?,?,?,?)
+            VALUES (?, ?, ?, ?)
             """,
             (
                 participant_infos["id"],
@@ -27,7 +27,7 @@ class ParticipantsRepository:
         cursor = self.__conn.cursor()
         cursor.execute(
             """
-            SELECT p.id, p.name, p.is_confirmed, p.email
+            SELECT p.id, p.name, p.is_confirmed, e.email
             from participants p
             JOIN emails_to_invite as e ON e.id = p.emails_to_invite_id
             WHERE p.trip_id = ?
